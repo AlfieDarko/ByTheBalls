@@ -1,0 +1,38 @@
+{
+  "name": "bytheballs",
+  "version": "1.0.0",
+  "description": "A Table Tennis Tournament Management Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlfieDarko/ByTheBalls.git"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "es6",
+    "node"
+  ],
+  "author": "Alfie Darko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlfieDarko/ByTheBalls/issues"
+  },
+  "homepage": "https://github.com/AlfieDarko/ByTheBalls#readme",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "babel-eslint": "7.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-last": "0.0.5",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "eslint-plugin-react": "7.9.1",
+    "prettier": "1.13.5"
+  }
+}
