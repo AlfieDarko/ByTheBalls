@@ -4,10 +4,17 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+
+require('babel-register')({
+  presets: ["env"]
+})
+require('babel-polyfill')
+require('dotenv').config()
+
+var app = require('../app').default;
 var debug = require('debug')('server:server');
 var http = require('http');
-
+var database = require('../database/database.js')
 /**
  * Get port from environment and store in Express.
  */
