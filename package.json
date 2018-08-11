@@ -7,7 +7,9 @@
     "server": "cd server && yarn start",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "test": "jest"
+    "testServer": "cd server && yarn test",
+    "testClient": "cd client && yarn test",
+    "test": "concurrently \"yarn testServer\" \"yarn testClient\""
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,8 @@
     "redux-promise": "^0.6.0"
   },
   "devDependencies": {
+    "jest": "^23.5.0",
+    "mocha": "^5.2.0",
     "babel-eslint": "7.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
