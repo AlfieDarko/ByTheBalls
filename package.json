@@ -6,8 +6,7 @@
   "scripts": {
     "server": "cd server && yarn start",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "test": "jest"
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "repository": {
     "type": "git",
