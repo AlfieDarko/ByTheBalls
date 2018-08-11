@@ -29,6 +29,8 @@
   "homepage": "https://github.com/AlfieDarko/ByTheBalls#readme",
   "dependencies": {
     "concurrently": "^3.5.1",
+    "jest": "^23.5.0",
+    "mocha": "^5.2.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-promise": "^0.6.0"
