@@ -4,7 +4,10 @@
   "description": "A Table Tennis Tournament Management Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "cd server && yarn start",
+    "client": "cd client && yarn start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,15 +27,24 @@
   "homepage": "https://github.com/AlfieDarko/ByTheBalls#readme",
   "dependencies": {
     "concurrently": "^3.5.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-promise": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "7.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "babel-eslint": "7.0.0",
+    "concurrently": "^3.5.1",
     "eslint": "4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
     "eslint-config-last": "0.0.5",
     "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "2.6.0",
-    "eslint-plugin-react": "7.9.1",
+    "eslint-plugin-react": "^7.10.0",
     "prettier": "1.13.5"
   }
 }
