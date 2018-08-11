@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/AlfieDarko/ByTheBalls#readme",
   "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "concurrently": "^3.5.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
