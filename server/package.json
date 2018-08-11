@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha --compilers js:babel-core/register ./specs/**.spec.js"
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register ./specs/**.spec.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
