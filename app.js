@@ -1,10 +1,8 @@
 import express from 'express';
 import { join } from 'path';
-import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import { json, urlencoded } from 'body-parser';
-import lessMiddleware from 'less-middleware';
 
 import index from './routes/index';
 import users from './routes/users';
@@ -15,13 +13,10 @@ var app = express();
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(lessMiddleware(join(__dirname, 'public')));
 app.use(express.static(join(__dirname, 'public')));
 
 app.use('/', index);
