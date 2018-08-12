@@ -10,6 +10,9 @@ test('Server Testing Suite loads', () => {
     expect(1).toBe(1)
 });
 
+beforeAll(async () => {
+    await db.drop()
+})
 
 afterAll(async () => {
     await db.disconnect()
