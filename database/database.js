@@ -7,11 +7,11 @@ class Database {
   }
 
   _connect() {
+
+    const MONGO_DB_URL = "mongodb://admin:bytheballs1@ds219432.mlab.com:19432/bytheballsdb"
     mongoose
       .connect(
-        `mongodb://${'admin:bytheballs1@ds219432.mlab.com:19432'}/${
-          'MONGO_DB_NAME=bytheballsdb'
-        }`, {
+        DB_URL, {
           useNewUrlParser: true
         },
       )
