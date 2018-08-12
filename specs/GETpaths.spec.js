@@ -29,7 +29,7 @@ describe('GET Paths', () => {
         });
 
         it('Should return object with correct properties', async () => {
-            let expectedProps = ['tournamentName', 'players'];
+            let expectedProps = ['tournamentName', 'players', '_id'];
 
             const response = await request(app).get('/api/v1/tournaments')
             let sampleKeys = Object.keys(response.body[0]);
@@ -40,7 +40,7 @@ describe('GET Paths', () => {
         });
 
         it('Should NOT return objects with extra properties', async () => {
-            let expectedProps = ['tournamentName', 'players'];
+            let expectedProps = ['tournamentName', 'players', '_id'];
 
             const response = await request(app).get('/api/v1/tournaments')
             let extraProps = Object.keys(response.body[0]).filter((key) => {

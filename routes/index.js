@@ -15,24 +15,17 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.get('/api/v1/tournaments', function (req, res, next) {
+router.get('/api/v1/tournaments', async function (req, res, next) {
 
-
-  res.json(
-    [{
-      'tournamentName': 'Makers PingPong',
-      'players': {
-        playerA: 'James',
-        playerB: 'Harry',
-        playerC: 'Jason',
-        playerD: 'Kofi',
-        playerE: 'Ali',
-        playerF: 'Channelle',
-        playerG: 'Jaques',
-        playerH: 'Marcell'
-      }
-    }]
-  );
+  try {
+    const allTournaments = await Tournament.find({}).select('-__v')
+    console.log(allTournaments)
+    return res.json(allTournaments)
+  } catch (error) {
+    return res.status(400).json({
+      error: 'Bad Request: Make sure you have filled in all parameters'
+    }).end()
+  }
 });
 
 router.post('/api/v1/tournaments', async function (req, res, next) {
