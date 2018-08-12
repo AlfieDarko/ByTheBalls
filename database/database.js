@@ -27,6 +27,10 @@ class Database {
   disconnect() {
     mongoose.disconnect()
   }
+
+  drop() {
+    mongoose.tournaments.drop()
+  }
 }
 
 module.exports = new Database();
