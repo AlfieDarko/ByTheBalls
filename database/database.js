@@ -1,4 +1,5 @@
 let mongoose = require('mongoose');
+require('dotenv').config()
 
 class Database {
   constructor() {
@@ -10,8 +11,9 @@ class Database {
       .connect(
         `mongodb://${process.env.MONGO_SERVER_NAME}/${
           process.env.MONGO_DB_NAME
-        }`,
-        { useNewUrlParser: true },
+        }`, {
+          useNewUrlParser: true
+        },
       )
       .then(() => {
         console.log('Database connection successful');
@@ -20,6 +22,10 @@ class Database {
         console.log(err)
         console.error('Database connection error');
       });
+  }
+
+  disconnect() {
+    mongoose.disconnect()
   }
 }
 

@@ -1,17 +1,47 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, {
+    Schema
+} from 'mongoose';
 
-export const TournamentSchema = new Schema({
+export const tournamentSchema = new Schema({
     tournamentName: {
         type: String,
         unique: true,
-        required: true    
+        required: true
     },
     players: {
-        type: Array,
-        validate: [arrayLimit, '{PATH} exceeds the limit of 8']
+        playerA: {
+            type: String,
+            required: true
+        },
+        playerB: {
+            type: String,
+            required: true
+        },
+        playerC: {
+            type: String,
+            required: true
+        },
+        playerD: {
+            type: String,
+            required: true
+        },
+        playerE: {
+            type: String,
+            required: true
+        },
+        playerF: {
+            type: String,
+            required: true
+        },
+        playerG: {
+            type: String,
+            required: true
+        },
+        playerH: {
+            type: String,
+            required: true
+        },
     }
 })
 
-export function arrayLimit(val) {
-    return val.length <= 8;
-  }
+export const Tournament = mongoose.model('Tournament', tournamentSchema)

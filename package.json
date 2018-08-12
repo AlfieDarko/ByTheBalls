@@ -7,7 +7,7 @@
     "start": "node ./bin/www",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn start\" \"yarn client\"",
-    "test": "jest --coverage --collectCoverageFrom=routes/**.js --collectCoverageFrom=!app.js"
+    "test": "jest --detectOpenHandles --coverage --collectCoverageFrom=routes/**.js --collectCoverageFrom=!app.js"
   },
   "repository": {
     "type": "git",
