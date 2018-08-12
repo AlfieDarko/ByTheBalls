@@ -1,10 +1,10 @@
 import request from 'supertest';
 import app from '../app';
-import {
-    doesNotReject
-} from 'assert';
-import db from '../database/database'
 
+import db from '../database/database'
+import {
+    sendPostRequest
+} from './helpers/postRequest'
 
 test('Server Testing Suite loads', () => {
     expect(1).toBe(1)
@@ -50,28 +50,4 @@ describe('GET Paths', () => {
         });
     });
 
-});
-
-describe('POST Paths', () => {
-    describe('POST /api/v1/tournaments', () => {
-        it('Posts to new tournament path return status 200', async (done) => {
-            const response = await request(app)
-                .post('/api/v1/tournaments')
-                .send({
-                    tournamentName: 'Makers PingPong 112',
-                    players: {
-                        playerA: 'Jackie',
-                        playerB: 'Brianna',
-                        playerC: 'Chelsea',
-                        playerD: 'Lisa',
-                        playerE: 'Mark',
-                        playerF: 'Jake',
-                        playerG: 'Jason',
-                        playerH: 'Aquelina'
-                    }
-                })
-            expect(response.status).toBe(200);
-            done()
-        });
-    });
 });
