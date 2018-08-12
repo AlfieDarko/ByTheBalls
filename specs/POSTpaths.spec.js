@@ -27,7 +27,7 @@ describe('POST Paths', () => {
 
         it('Should reject Request when name parameter is missing', async (done) => {
             const response = await sendPostRequest(app, API_POST_URL)
-            expect(response.status).toBe(500);
+            expect(response.status).toBe(400);
             done()
         });
     });
