@@ -12,14 +12,14 @@ describe('GET Paths', () => {
             expect(response.statusCode).toBe(200);
         });
     })
-    
+
     describe('GET /api/v1/tournaments', () => {
         it('Can get all tournaments', async () => {
             const response = await request(app).get('/api/v1/tournaments')
             expect(response.body).toBeInstanceOf(Object);
         });
 
-        it('Should return object with correct properties', async ()  => {
+        it('Should return object with correct properties', async () => {
             let expectedProps = ['tournamentName', 'players'];
 
             const response = await request(app).get('/api/v1/tournaments')
@@ -27,10 +27,18 @@ describe('GET Paths', () => {
             expectedProps.forEach((key) => {
                 console.log(key)
                 expect(sampleKeys.includes(key)).toBe(true);
-              });
+            });
         });
 
+        it('Should NOT return objects with extra properties', async () => {
+            let expectedProps = ['tournamentName', 'players'];
 
+            const response = await request(app).get('/api/v1/tournaments')
+            let extraProps = Object.keys(response.body[0]).filter((key) => {
+                return !expectedProps.includes(key);
+            });
+            expect(extraProps.length).toBe(0);
+        });
     });
-    
+
 });
