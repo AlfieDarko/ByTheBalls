@@ -5,7 +5,7 @@ test('Server Testing Suite loads', () => {
     expect(1).toBe(1)
 });
 
-test('GET Paths', () => {
+describe('GET Paths', () => {
     describe('Test the root path', () => {
         it('It should response the GET method', async () => {
             const response = await request(app).get('/');
