@@ -14,9 +14,18 @@ describe('GET Paths', () => {
     })
     
     describe('GET /api/v1/tournaments', () => {
+        let expectedProps = ['tournamentName', 'players'];
         it('Can get all tournaments', async () => {
             const response = await request(app).get('/api/v1/tournaments')
             expect(response.body).toBeInstanceOf(Object);
+        });
+
+        it('Should return object with correct properties', async ()  => {
+            const response = await request(app).get('/api/v1/tournaments')
+            let sampleKeys = Object.keys(response.body[0]);
+            expectedProps.forEach((key) => {
+                expect(sampleKeys.includes(key)).toBe(true);
+              });
         });
     });
     
