@@ -10,10 +10,6 @@ test('Server Testing Suite loads', () => {
     expect(1).toBe(1)
 });
 
-beforeAll(async () => {
-    await db.drop()
-})
-
 afterAll(async () => {
     await db.disconnect()
 });
@@ -62,7 +58,7 @@ describe('POST Paths', () => {
             const response = await request(app)
                 .post('/api/v1/tournaments')
                 .send({
-                    tournamentName: 'Makers PingPong Queens',
+                    tournamentName: 'Makers PingPong 112',
                     players: {
                         playerA: 'Jackie',
                         playerB: 'Brianna',

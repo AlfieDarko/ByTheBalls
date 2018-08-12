@@ -5,7 +5,6 @@ import mongoose, {
 export const tournamentSchema = new Schema({
     tournamentName: {
         type: String,
-        unique: true,
         required: true
     },
     players: {

@@ -9,7 +9,7 @@ class Database {
   _connect() {
 
     const DB_URL = "mongodb://admin:bytheballs1@ds219432.mlab.com:19432/bytheballsdb"
-    mongoose
+    returnmongoose
       .connect(
         DB_URL, {
           useNewUrlParser: true
@@ -28,9 +28,7 @@ class Database {
     mongoose.disconnect()
   }
 
-  drop() {
-    mongoose.tournaments.drop()
-  }
+
 }
 
 module.exports = new Database();
