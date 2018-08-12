@@ -1,9 +1,29 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from 'express';
+import tournament from '../models/tournament'
+const router = Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-module.exports = router;
+router.get('/api/v1/tournaments', function(req, res, next) {
+  res.json(
+    [
+    {
+      'tournamentName': 'Makers PingPong',
+      'Players': [
+        'James',
+        'Harry',
+        'Jason',
+        'Kofi',
+        'Ali',
+        'Channelle',
+        'Jaques',
+        'Marcell'
+      ]
+    }
+  ]
+);
+});
+export default router;
