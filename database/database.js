@@ -9,8 +9,8 @@ class Database {
   _connect() {
     mongoose
       .connect(
-        `mongodb://${process.env.MONGO_SERVER_NAME}/${
-          process.env.MONGO_DB_NAME
+        `mongodb://${'admin:bytheballs1@ds219432.mlab.com:19432'}/${
+          'MONGO_DB_NAME=bytheballsdb'
         }`, {
           useNewUrlParser: true
         },
