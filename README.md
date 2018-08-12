@@ -1,4 +1,5 @@
 # ByTheBalls
+[![Build Status](https://travis-ci.com/AlfieDarko/ByTheBalls.svg?branch=master)](https://travis-ci.com/AlfieDarko/ByTheBalls)
 
 Table Tennis Tournament WebApp - Sign up and set up tournaments between your friends
 
