@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "9"
-before_script: "yarn global add jest mocha"
+before_script: "yarn global add eslint jest mocha"
 cache:
   directories:
     - node_modules

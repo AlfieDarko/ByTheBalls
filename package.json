@@ -1,15 +1,13 @@
 {
   "name": "bytheballs",
   "version": "1.0.0",
-  "description": "A Table Tennis Tournament Management Website",
+  "description": "A Ping Pong Tournament Management Website",
   "main": "index.js",
   "scripts": {
-    "server": "cd server && yarn start",
+    "start": "node ./bin/www",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "testServer": "cd server && yarn test",
-    "testClient": "cd client && yarn test",
-    "test": "concurrently \"yarn testServer\" \"yarn testClient\""
+    "dev": "concurrently \"yarn start\" \"yarn client\"",
+    "test": "jest --coverage --collectCoverageFrom=routes/**.js --collectCoverageFrom=!app.js"
   },
   "repository": {
     "type": "git",
@@ -29,21 +27,33 @@
   "homepage": "https://github.com/AlfieDarko/ByTheBalls#readme",
   "dependencies": {
     "babel-preset-react": "^6.24.1",
+    "body-parser": "~1.17.1",
     "concurrently": "^3.5.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "dotenv": "^6.0.0",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "less-middleware": "~2.2.0",
+    "mongoose": "^5.2.7",
+    "morgan": "~1.8.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "redux-promise": "^0.6.0"
+    "redux-promise": "^0.6.0",
+    "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
     "babel-eslint": "7.0.0",
+    "babel-jest": "^23.4.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "concurrently": "^3.5.1",
-    "eslint": "4.19.1",
+    "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-last": "0.0.5",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "^2.13.0",
@@ -51,7 +61,9 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.5.0",
+    "jest-css-modules": "^1.1.0",
     "mocha": "^5.2.0",
-    "prettier": "1.13.5"
+    "prettier": "1.13.5",
+    "supertest": "^3.1.0"
   }
 }
