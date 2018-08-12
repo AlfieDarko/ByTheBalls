@@ -12,7 +12,7 @@ router.get('/api/v1/tournaments', function(req, res, next) {
     [
     {
       'tournamentName': 'Makers PingPong',
-      'Players': [
+      'players': [
         'James',
         'Harry',
         'Jason',
