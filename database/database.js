@@ -8,7 +8,7 @@ class Database {
 
   _connect() {
 
-    const MONGO_DB_URL = "mongodb://admin:bytheballs1@ds219432.mlab.com:19432/bytheballsdb"
+    const DB_URL = "mongodb://admin:bytheballs1@ds219432.mlab.com:19432/bytheballsdb"
     mongoose
       .connect(
         DB_URL, {
