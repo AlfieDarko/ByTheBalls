@@ -12,3 +12,9 @@ describe('Test the root path', () => {
     });
 })
 
+describe('GET /api/v1/tournaments', () => {
+    it('Can get all tournaments', async () => {
+        const response = await request(app).get('/api/v1/tournaments')
+        expect(response.body).toBeInstanceOf(Object);
+    });
+});
