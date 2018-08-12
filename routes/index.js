@@ -33,7 +33,6 @@ router.get('/api/v1/tournaments', function (req, res, next) {
 });
 
 router.post('/api/v1/tournaments', function (req, res, next) {
-  // console.log(req)
   let newTournament = new Tournament({
     tournamentName: req.body.tournamentName,
     players: {

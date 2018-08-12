@@ -71,7 +71,6 @@ describe('POST Paths', () => {
                         playerH: 'Aquelina'
                     }
                 })
-            console.log(response)
             expect(response.status).toBe(200);
             done()
         });
