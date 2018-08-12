@@ -32,7 +32,8 @@ router.get('/api/v1/tournaments', function (req, res, next) {
   );
 });
 
-router.post('/api/v1/tournaments', function (req, res, next) {
+router.post('/api/v1/tournaments', async function (req, res, next) {
+
   let newTournament = new Tournament({
     tournamentName: req.body.tournamentName,
     players: {
@@ -48,20 +49,18 @@ router.post('/api/v1/tournaments', function (req, res, next) {
     }
   })
 
-  newTournament.save(function (err) {
-    if (err) {
-      console.log(err)
-      return res.status(400).json({
-        status: 400,
-        message: "Bad Request"
-      }).end();
-    }
-  })
-
-  return res.status(200).json({
-    status: 200,
-    message: "Success!"
-  }).end();
+  try {
+    const savedTournament = await newTournament.save()
+    return res.status(201).json({
+      success: savedTournament,
+      message: 'Success!'
+    }).end();
+  } catch (error) {
+    return res.status(500).json({
+      error: 'Missing parameters'
+    }).end()
+  }
 
 })
+
 export default router;

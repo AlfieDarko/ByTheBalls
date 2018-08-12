@@ -15,12 +15,19 @@ afterAll(async () => {
 
 describe('POST Paths', () => {
     describe('POST /api/v1/tournaments', () => {
-        it('Posts the request to the tournament path successfully with 200 status code', async (done) => {
-            const API_POST_URL = '/api/v1/tournaments'
+        const API_POST_URL = '/api/v1/tournaments'
+
+        it('Posts the request to the tournament path successfully with 201 status code', async (done) => {
             const response = await sendPostRequest(app, API_POST_URL, 'makers')
-            expect(response.body.status).toBe(200);
+            expect(response.status).toBe(201);
             expect(response.body.message).toBe('Success!');
-            expect()
+            done()
+        });
+
+
+        it('Should reject Request when name parameter is missing', async (done) => {
+            const response = await sendPostRequest(app, API_POST_URL)
+            expect(response.status).toBe(500);
             done()
         });
     });
