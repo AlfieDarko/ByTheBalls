@@ -6,9 +6,7 @@ const router = Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {
-    title: 'Express',
-  });
+  res.status(200).end();
 });
 
 router.get('/api/v1/tournaments', async function(req, res) {
