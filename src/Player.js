@@ -3,6 +3,7 @@ class Player {
     this.name = name;
     this.wonFirstMatch = null;
     this.wonSemiFinalMatch = null;
+    this.wonFinalMatch = null;
   }
 }
 
