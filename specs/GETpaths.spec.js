@@ -31,7 +31,6 @@ describe('GET Paths', () => {
       const response = await request(app).get('/api/v1/tournaments');
       let sampleKeys = Object.keys(response.body[0]);
       expectedProps.forEach(key => {
-        console.log(key);
         expect(sampleKeys.includes(key)).toBe(true);
       });
     });
