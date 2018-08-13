@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../stylesheets/main.less';
+import style from '../styles/main.less';
 
 const Header = () => (
   <React.Fragment>

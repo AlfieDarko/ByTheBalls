@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const STYLESHEETS_DIR = path.resolve(__dirname, './src/stylesheets/');
+const STYLESHEETS_DIR = path.resolve(__dirname, './src/styles/');
 
 module.exports = {
   entry: './src/index.js',
