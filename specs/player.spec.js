@@ -14,9 +14,11 @@ describe('Player Class', () => {
     });
   });
 
-  describe('When instantiated', () => {
-    it('the .round1Winner property should eql null', () => {
-      expect(player.wonRound1).toBe(null);
+  describe('When instantiated ', () => {
+    describe('this.wonFirstMatch', () => {
+      it('Should eql null', () => {
+        expect(player.wonFirstMatch).toBe(null);
+      });
     });
   });
 });

@@ -1,7 +1,7 @@
 class Player {
   constructor(name) {
     this.name = name;
-    this.wonRound1 = null;
+    this.wonFirstMatch = null;
   }
 }
 
