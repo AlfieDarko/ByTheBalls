@@ -26,5 +26,11 @@ describe('Player Class', () => {
         expect(player.wonSemiFinalMatch).toBe(null);
       });
     });
+
+    describe('this.wonFinalMatch', () => {
+      it('should eql null', () => {
+        expect(player.wonFinalMatch).toBe(null);
+      });
+    });
   });
 });
