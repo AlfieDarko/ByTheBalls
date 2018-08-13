@@ -50,5 +50,14 @@ describe('Player Class', () => {
         });
       });
     });
+
+    describe('.winFinalMatch()', () => {
+      describe('when executed', () => {
+        it('Should set .wonFinalMatch property as true', () => {
+          player.winFinalMatch();
+          expect(player.wonFinalMatch).toBe(true);
+        });
+      });
+    });
   });
 });
