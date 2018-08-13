@@ -33,11 +33,20 @@ describe('Player Class', () => {
       });
     });
 
-    describe('.wonFirstMatch()', () => {
+    describe('.winFirstMatch()', () => {
       describe('When executed', () => {
         it('Should set .wonFirstMatch property as true', () => {
           player.winFirstMatch();
           expect(player.wonFirstMatch).toBe(true);
+        });
+      });
+    });
+
+    describe('.winSemiFinalMatch()', () => {
+      describe('when executed', () => {
+        it('Should set .wonSemiFinalMatch property as true', () => {
+          player.winSemiFinalMatch();
+          expect(player.wonSemiFinalMatch).toBe(true);
         });
       });
     });

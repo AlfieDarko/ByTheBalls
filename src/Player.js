@@ -9,6 +9,10 @@ class Player {
   winFirstMatch() {
     this.wonFirstMatch = true;
   }
+
+  winSemiFinalMatch() {
+    this.wonSemiFinalMatch = true;
+  }
 }
 
 export default Player;
