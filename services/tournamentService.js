@@ -1,5 +1,4 @@
 import {
-    tournamentSchema,
     Tournament
 } from '../models/tournament'
 
@@ -7,7 +6,6 @@ import {
 class TournamentService {
 
     static create(req) {
-
         let newTournament = new Tournament({
             tournamentName: req.body.tournamentName,
             players: {
