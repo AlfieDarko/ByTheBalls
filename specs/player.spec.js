@@ -16,20 +16,29 @@ describe('Player Class', () => {
 
   describe('When instantiated ', () => {
     describe('this.wonFirstMatch', () => {
-      it('Should eql null', () => {
+      it('Should start with eql null', () => {
         expect(player.wonFirstMatch).toBe(null);
       });
     });
 
     describe('this.wonSemiFinalMatch', () => {
-      it('should eql null', () => {
+      it('should start with eql null', () => {
         expect(player.wonSemiFinalMatch).toBe(null);
       });
     });
 
     describe('this.wonFinalMatch', () => {
-      it('should eql null', () => {
+      it('should start with eql null', () => {
         expect(player.wonFinalMatch).toBe(null);
+      });
+    });
+
+    describe('.wonFirstMatch()', () => {
+      describe('When executed', () => {
+        it('Should set .wonFirstMatch property as true', () => {
+          player.winFirstMatch();
+          expect(player.wonFirstMatch).toBe(true);
+        });
       });
     });
   });

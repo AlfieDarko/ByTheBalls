@@ -5,6 +5,10 @@ class Player {
     this.wonSemiFinalMatch = null;
     this.wonFinalMatch = null;
   }
+
+  winFirstMatch() {
+    this.wonFirstMatch = true;
+  }
 }
 
 export default Player;
