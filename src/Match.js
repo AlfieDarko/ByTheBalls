@@ -23,7 +23,15 @@ class Match {
   }
 
   getFirstMatchWinner() {
-    return this.firstMatchWinner.isFirstMatchWinner();
+    return this.firstMatchWinner;
+  }
+
+  getSemiFinalMatchWinner() {
+    return this.semiFinalMatchWinner;
+  }
+
+  getFinalMatchWinner() {
+    return this.finalMatchWinner;
   }
 }
 

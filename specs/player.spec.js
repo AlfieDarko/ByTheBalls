@@ -60,20 +60,7 @@ describe('Player Class', () => {
       });
     });
 
-    describe('.isFirstMatchWinner()', () => {
-      describe('when executed on player1 class instance', () => {
-        it('Should return true', () => {
-          expect(player.isFirstMatchWinner()).toBe(true);
-        });
-      });
 
-      describe('.isSemiFinalWinner()', () => {
-        describe('When excuted on player1 class instance', () => {
-          it('Should return true', () => {
-            expect(player.isSemiFinalWinner()).toBe(true);
-          });
-        });
-      });
     });
   });
 });

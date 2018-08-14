@@ -2,16 +2,18 @@ import Match from '../src/Match';
 import Player from '../src/Player';
 
 jest.mock('../src/Player');
+beforeAll(() => {
+  Player.mockImplementationOnce(() => {
+    return {
+      isFirstMatchWinner: () => {
+        return true;
+      },
+    };
+  });
+});
+
 const player1 = new Player();
 const player2 = new Player();
-
-// beforeAll(() => {
-//   Player.mockImplementation(() => {
-//     return {
-//       winFirstMatch: () => {},
-//     };
-//   });
-// });
 
 describe('Match', () => {
   let match = new Match(player1, player2);
@@ -53,9 +55,23 @@ describe('Match', () => {
     });
 
     describe('.getFirstMatchWinner()', () => {
-      it('should call isFirstMatchWinner on the player1 class instance', () => {
-        match.getFirstMatchWinner(player1);
-        expect(player1.isFirstMatchWinner).toHaveBeenCalledTimes(1);
+      it('should return player1 after player is set as the winner', () => {
+        match.setFirstMatchWinner(player1);
+        expect(match.getFirstMatchWinner()).toBe(player1);
+      });
+    });
+
+    describe('.getSemiFinalMatchWinner()', () => {
+      it('should return player1 after player is set as the winner', () => {
+        match.setSemiFinalMatchWinner(player1);
+        expect(match.getFirstMatchWinner()).toBe(player1);
+      });
+    });
+
+    describe('..getFinalMatchWinner()()', () => {
+      it('should call .getFinalMatchWinner on the player1 class instance', () => {
+        match.setSemiFinalMatchWinner(player1);
+        expect(match.getFinalMatchWinner()).toBe(player1);
       });
     });
   });
