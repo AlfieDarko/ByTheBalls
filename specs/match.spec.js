@@ -2,21 +2,12 @@ import Match from '../src/Match';
 import Player from '../src/Player';
 
 jest.mock('../src/Player');
-beforeAll(() => {
-  Player.mockImplementationOnce(() => {
-    return {
-      isFirstMatchWinner: () => {
-        return true;
-      },
-    };
-  });
-});
 
 const player1 = new Player();
 const player2 = new Player();
+let match = new Match(player1, player2);
 
 describe('Match', () => {
-  let match = new Match(player1, player2);
   describe('When instantiated with 2 player classes', () => {
     describe('.setFirstMatchWinner()', () => {
       it('Should call the .winFirstMatch() on selected player1 class instance', () => {
