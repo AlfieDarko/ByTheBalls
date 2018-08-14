@@ -23,6 +23,12 @@ class Player {
       return true;
     } else return false;
   }
+
+  isSemiFinalWinner() {
+    if (this.wonSemiFinalMatch == true) {
+      return true;
+    } else return false;
+  }
 }
 
 export default Player;
