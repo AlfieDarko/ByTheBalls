@@ -7,6 +7,10 @@ class Match {
   setFirstMatchWinner(winner) {
     winner.winFirstMatch();
   }
+
+  setSemiFinalMatchWinner(winner) {
+    winner.winSemiFinalMatch();
+  }
 }
 
 export default Match;
