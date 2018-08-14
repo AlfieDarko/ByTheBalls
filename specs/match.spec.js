@@ -39,5 +39,12 @@ describe('Match', () => {
         expect(player2.winSemiFinalMatch).not.toHaveBeenCalled;
       });
     });
+
+    describe('.setFinalMatchWinner()', () => {
+      it('Should call the .winFinalMatch() on selected player1 class instance', () => {
+        match.setFinalMatch(player1);
+        expect(player1.winFinalMatch).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });

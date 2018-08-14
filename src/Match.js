@@ -11,6 +11,10 @@ class Match {
   setSemiFinalMatchWinner(winner) {
     winner.winSemiFinalMatch();
   }
+
+  setFinalMatch(winner) {
+    winner.winFinalMatch();
+  }
 }
 
 export default Match;
