@@ -17,6 +17,12 @@ class Player {
   winFinalMatch() {
     this.wonFinalMatch = true;
   }
+
+  isFirstMatchWinner() {
+    if (this.wonFirstMatch == true) {
+      return true;
+    } else return false;
+  }
 }
 
 export default Player;

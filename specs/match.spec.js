@@ -51,5 +51,12 @@ describe('Match', () => {
         expect(player2.winFinalMatch).not.toHaveBeenCalled;
       });
     });
+
+    describe('.getFirstMatchWinner()', () => {
+      it('should call isFirstMatchWinner on the player1 class instance', () => {
+        match.getFirstMatchWinner(player1);
+        expect(player1.isFirstMatchWinner).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });
