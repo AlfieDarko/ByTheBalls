@@ -45,6 +45,11 @@ describe('Match', () => {
         match.setFinalMatch(player1);
         expect(player1.winFinalMatch).toHaveBeenCalledTimes(1);
       });
+
+      it('Should NOT call the .winFinalMatch() on the player2 class instance', () => {
+        match.setFinalMatch(player1);
+        expect(player2.winFinalMatch).not.toHaveBeenCalled;
+      });
     });
   });
 });
