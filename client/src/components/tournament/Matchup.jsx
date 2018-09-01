@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../styles/main.less';
 
-const Matchup = ({ playerA, playerB, winner }) => (
+const Matchup = ({ playerA, playerB }) => (
   <Fragment>
     <ul className={styles.matchup}>
       <li className={`${styles.team} ${styles['team-top']}`}>
