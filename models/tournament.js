@@ -14,23 +14,17 @@ export const tournamentSchema = new Schema({
         type: String,
         required: true,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonFirstMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonQuarterFinalMatch: {
+        type: Boolean,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonSemiFinalMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
     {
@@ -41,23 +35,17 @@ export const tournamentSchema = new Schema({
         type: String,
         required: true,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonFirstMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonQuarterFinalMatch: {
+        type: Boolean,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonSemiFinalMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
     {
@@ -68,23 +56,17 @@ export const tournamentSchema = new Schema({
         type: String,
         required: true,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonFirstMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonQuarterFinalMatch: {
+        type: Boolean,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonSemiFinalMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
     {
@@ -95,23 +77,17 @@ export const tournamentSchema = new Schema({
         type: String,
         required: true,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonFirstMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonQuarterFinalMatch: {
+        type: Boolean,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonSemiFinalMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
     {
@@ -122,23 +98,17 @@ export const tournamentSchema = new Schema({
         type: String,
         required: true,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonFirstMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonQuarterFinalMatch: {
+        type: Boolean,
       },
-    },
-    {
-      id: {
-        type: String,
+      wonSemiFinalMatch: {
+        type: Boolean,
       },
-      name: {
-        type: String,
-        required: true,
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
     {
@@ -148,6 +118,228 @@ export const tournamentSchema = new Schema({
       name: {
         type: String,
         required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
+      },
+    },
+    {
+      id: {
+        type: String,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      wonFirstMatch: {
+        type: Boolean,
+      },
+      wonQuarterFinalMatch: {
+        type: Boolean,
+      },
+      wonSemiFinalMatch: {
+        type: Boolean,
+      },
+      wonFinalMatch: {
+        type: Boolean,
       },
     },
   ],
