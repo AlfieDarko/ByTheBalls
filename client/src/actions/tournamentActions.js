@@ -37,6 +37,7 @@ export function loadTournaments() {
       .then(tournaments => {
         dispatch(loadTournamentsSuccess(tournaments.data));
       })
+      
       .catch(error => {
         throw error;
       });
