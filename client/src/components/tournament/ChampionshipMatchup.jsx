@@ -21,4 +21,5 @@ ChampionshipMatchup.propTypes = {
   playerA: PropTypes.string.isRequired,
   playerB: PropTypes.string.isRequired,
 };
+
 export default ChampionshipMatchup;

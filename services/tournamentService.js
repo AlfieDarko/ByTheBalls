@@ -2,21 +2,16 @@ import { Tournament } from '../models/tournament';
 
 class TournamentService {
   static create(req) {
-    let newTournament = new Tournament({
-      tournamentName: req.body.tournamentName,
-      players: {
-        playerA: req.body.players.playerA,
-        playerB: req.body.players.playerB,
-        playerC: req.body.players.playerC,
-        playerD: req.body.players.playerD,
-        playerE: req.body.players.playerE,
-        playerF: req.body.players.playerF,
-        playerG: req.body.players.playerG,
-        playerH: req.body.players.playerH,
-      },
-    });
+    console.log('req players', req.body.players, 'req');
+    console.log('reqnew', req.body.players[0][0], 'reqnew');
+    console.log('reqnew1', req.body.players[1], 'reqnew');
 
-    return newTournament.save();
+    let tournamentEntry = new Tournament({
+      tournamentName: req.body.tournamentName,
+      players: req.body.players,
+    });
+    console.log(tournamentEntry);
+    return tournamentEntry.save();
   }
 }
 

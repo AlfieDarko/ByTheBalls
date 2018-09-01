@@ -7,28 +7,27 @@ class Database {
   }
 
   _connect() {
-
-    const DB_URL = "mongodb://admin:bytheballs1@ds219432.mlab.com:19432/bytheballsdb"
+    const DB_URL =
+      'mongodb://admin:123pingpong@ds125402.mlab.com:25402/racketping';
     mongoose
       .connect(
-        DB_URL, {
-          useNewUrlParser: true
+        DB_URL,
+        {
+          useNewUrlParser: true,
         },
       )
       .then(() => {
         console.log('Database connection successful');
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
         console.error('Database connection error');
       });
   }
 
   disconnect() {
-    mongoose.disconnect()
+    mongoose.disconnect();
   }
-
-
 }
 
 module.exports = new Database();
