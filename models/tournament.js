@@ -16,15 +16,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -37,15 +41,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -58,15 +66,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -79,15 +91,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -100,15 +116,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -121,15 +141,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -142,15 +166,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -163,15 +191,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -184,15 +216,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -205,15 +241,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -226,15 +266,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -247,15 +291,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -268,15 +316,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -289,15 +341,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -310,15 +366,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
     {
@@ -331,15 +391,19 @@ export const tournamentSchema = new Schema({
       },
       wonFirstMatch: {
         type: Boolean,
+        default: null,
       },
       wonQuarterFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonSemiFinalMatch: {
         type: Boolean,
+        default: null,
       },
       wonFinalMatch: {
         type: Boolean,
+        default: null,
       },
     },
   ],
