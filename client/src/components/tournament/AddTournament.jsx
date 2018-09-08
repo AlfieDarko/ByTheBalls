@@ -11,7 +11,7 @@ class AddTournament extends React.Component {
     super(props, context);
 
     this.state = {
-      tournament: Object.assign({}, this.props.tournament),
+      tournamentForm: Object.assign({}, this.props.tournamentForm),
     };
 
     this.updateTournamentState = this.updateTournamentState.bind(this);
@@ -20,16 +20,18 @@ class AddTournament extends React.Component {
 
   updateTournamentState(event) {
     const field = event.target.name;
-    let tournament = Object.assign({}, this.state.tournament);
+    let tournament = Object.assign({}, this.state.tournamentForm);
     tournament[field] = event.target.value;
-    return this.setState({ tournament: tournament });
+    return this.setState({ tournamentForm: tournament });
   }
 
   saveTournament(event) {
     event.preventDefault();
-    this.props.actions.saveTournament(this.state.tournament).catch(error => {
-      console.log(error);
-    });
+    this.props.actions
+      .saveTournament(this.state.tournamentForm)
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -42,65 +44,6 @@ class AddTournament extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  let tournament = {
-    tournamentName: '',
-    players: [
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-      {
-        name: '',
-      },
-    ],
-  };
-  return {
-    tournament: tournament,
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(tournamentActions, dispatch),
@@ -108,6 +51,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(AddTournament);

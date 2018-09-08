@@ -28,7 +28,9 @@ router.get('/api/v1/tournaments', async function(req, res) {
 
 router.post('/api/v1/tournaments', async function(req, res) {
   try {
-    console.log(req.body);
+    console.log(req.body, 'req.body');
+
+    console.log(req.body.tournament, 'req.body.tournament');
     const savedTournament = await tournamentService.create(req);
     return res
       .status(201)

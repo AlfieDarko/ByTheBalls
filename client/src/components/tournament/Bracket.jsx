@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import _ from 'lodash';
-// import PropTypes from 'prop-types';
 import WebFont from 'webfontloader';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -8,11 +6,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tournamentActions from '../../actions/tournamentActions';
+import * as playerActions from '../../actions/playerActions';
 
 // Components
 import Matchup from './Matchup';
 import ChampionshipMatchup from './ChampionshipMatchup';
 import styles from '../../styles/main.less';
+import { selectTournamentById } from '../../reducers/tournamentReducer';
 
 WebFont.load({
   google: {
@@ -32,30 +32,16 @@ let roundOneDiv = `${styles.round} ${styles['round-one']} ${styles.current}`;
 class Bracket extends React.Component {
   constructor(props, context) {
     super(props, context);
+    // this.handleDoubleClick = this.handleDoubleClick.bind(this);
 
-    this.state = {
-      tournament: Object.assign({}, this.props.tournament),
-    };
-  }
-
-  componentWillMount() {
-    this.props.actions.loadOneTournament(this.props.match.params.id);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps, 'sweetone');
-    this.setState({
-      tournament: Object.assign({}, nextProps.tournament),
-      players: nextProps.tournament.players,
-    });
+    this.state = {};
   }
 
   render() {
     const { tournament } = this.props;
-
     return (
       <Fragment>
-        {console.log(this.props.players, 'plyers')}
+        {console.log(this.props)}
         <section id={styles.bracket}>
           <div className={styles.container}>
             <div className={`${styles.split} ${styles['split-one']}`}>
@@ -64,10 +50,59 @@ class Bracket extends React.Component {
                   Sweet 16<br />
                   <span className={styles.date}>March 16</span>
                 </div>
-                <Matchup playerA="" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
+                {console.log()}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerA.name}
+                    playerAPoints={tournament.players.playerA.firstMatchPoints}
+                    playerB={tournament.players.playerB.name}
+                    playerBPoints={tournament.players.playerB.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerC.name}
+                    playerAPoints={tournament.players.playerC.firstMatchPoints}
+                    playerB={tournament.players.playerD.name}
+                    playerBPoints={tournament.players.playerD.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerE.name}
+                    playerAPoints={tournament.players.playerE.firstMatchPoints}
+                    playerB={tournament.players.playerF.name}
+                    playerBPoints={tournament.players.playerF.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerG.name}
+                    playerAPoints={tournament.players.playerG.firstMatchPoints}
+                    playerB={tournament.players.playerH.name}
+                    playerBPoints={tournament.players.playerH.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </div>
               {/* <!-- END ROUND ONE --> */}
 
@@ -143,10 +178,54 @@ class Bracket extends React.Component {
                   Sweet 16<br />
                   <span className={styles.date}>March 16</span>
                 </div>
-                <Matchup playerI="MJ" playerJ="Drake" />
-                <Matchup playerK="MJ" playerL="Drake" />
-                <Matchup playerM="MJ" playerN="Drake" />
-                <Matchup playerO="MJ" playerP="Drake" />
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerI.name}
+                    playerAPoints={tournament.players.playerI.firstMatchPoints}
+                    playerB={tournament.players.playerJ.name}
+                    playerBPoints={tournament.players.playerJ.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerK.name}
+                    playerAPoints={tournament.players.playerK.firstMatchPoints}
+                    playerB={tournament.players.playerL.name}
+                    playerBPoints={tournament.players.playerL.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerM.name}
+                    playerAPoints={tournament.players.playerM.firstMatchPoints}
+                    playerB={tournament.players.playerN.name}
+                    playerBPoints={tournament.players.playerN.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerO.name}
+                    playerAPoints={tournament.players.playerO.firstMatchPoints}
+                    playerB={tournament.players.playerP.name}
+                    playerBPoints={tournament.players.playerP.firstMatchPoints}
+                    // addToScore={e => this.handleDoubleClick(e)}
+                    // addToScore={addToScore}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </div>
               {/* <!-- END ROUND ONE -->*/}
             </div>
@@ -158,8 +237,13 @@ class Bracket extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  let ownPropsId = ownProps.match.params.id;
+  let tournament = selectTournamentById(state, ownPropsId);
+
   return {
-    tournament: state.tournament,
+    tournaments: state.tournaments,
+    state: state,
+    tournament: tournament,
   };
 }
 function mapDispatchToProps(dispatch) {

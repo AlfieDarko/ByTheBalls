@@ -12,10 +12,14 @@ const TournamentList = ({ tournaments }) => {
           <table>
             <thead />
             <tbody>
-              {console.log(tournaments, 'ooo')}
-              {tournaments.map(tournament => (
-                <TournamentItem key={tournament._id} tournament={tournament} />
-              ))}
+              {console.log(
+                Object.values(tournaments),
+                'Object.values(tournaments)',
+              )}
+              {Object.values(tournaments).map(tournament => {
+                console.log(tournament, 'lERT');
+                return <TournamentItem tournament={[tournament]} />;
+              })}
             </tbody>
           </table>
         </div>
