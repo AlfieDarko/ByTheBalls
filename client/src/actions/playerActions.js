@@ -1,5 +1,5 @@
 const SET_FIRST_MATCH_SUCCESS = 'SET_FIRST_MATCH_SUCCESS';
-const ADD_TO_FIRST_MATCH_SCORE_SUCCESS = 'ADD_TO_FIRST_MATCH_SCORE_SUCCESS';
+const ADD_TO_FIRST_MATCH_SCORE = 'ADD_TO_FIRST_MATCH_SCORE';
 // THIS FILE NEEDS A REFACTOR TO SEPERATE MATCH AND SCORE CONCERNS!!
 
 // MATCH ACTION CREATORS
@@ -19,10 +19,10 @@ const ADD_TO_FIRST_MATCH_SCORE_SUCCESS = 'ADD_TO_FIRST_MATCH_SCORE_SUCCESS';
 //   };
 // };
 
-// // SCORING ACTION CREATORS
-// export const addToFirstMatchScoreSuccess = player => {
-//   return { type: ADD_TO_FIRST_MATCH_SCORE_SUCCESS, player };
-// };
+// SCORING ACTION CREATORS
+export const addToScore = player => {
+  return { type: ADD_TO_FIRST_MATCH_SCORE, player };
+};
 
 // export const addToFirstMatchScore = (playerid, tournament) => {
 //   console.log(players, 'players now in the action creator');
