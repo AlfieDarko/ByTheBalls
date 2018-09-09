@@ -19,10 +19,11 @@ const Matchup = ({
           <li className={`${styles.team} ${styles['team-top']}`} id={playerA}>
             {playerA}
             <span className={styles.score}>
-              <FontAwesomeIcon icon={faMinusSquare} />{' '}
+              <FontAwesomeIcon id={playerA} icon={faMinusSquare} />{' '}
               <FontAwesomeIcon
+                id={playerA}
                 icon={faPlusSquare}
-                onDoubleClick={event => addToScore(event)}
+                onClick={event => addToScore(event)}
               />
               {'   '}
               {playerAPoints}
@@ -32,12 +33,15 @@ const Matchup = ({
           <li
             className={`${styles.team} ${styles['team-bottom']}`}
             id={playerB}
-            // onDoubleClick={addToScore(playerAid)}
           >
             {playerB}
             <span className={styles.score}>
-              <FontAwesomeIcon icon={faMinusSquare} />{' '}
-              <FontAwesomeIcon icon={faPlusSquare} />
+              <FontAwesomeIcon id={playerB} icon={faMinusSquare} />{' '}
+              <FontAwesomeIcon
+                id={playerB}
+                icon={faPlusSquare}
+                onClick={event => addToScore(event)}
+              />
               {'   '}
               {playerBPoints}
             </span>
