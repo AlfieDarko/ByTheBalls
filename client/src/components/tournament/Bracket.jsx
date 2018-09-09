@@ -32,9 +32,14 @@ let roundOneDiv = `${styles.round} ${styles['round-one']} ${styles.current}`;
 class Bracket extends React.Component {
   constructor(props, context) {
     super(props, context);
-    // this.handleDoubleClick = this.handleDoubleClick.bind(this);
+    this.handleAddToScoreClick = this.handleAddToScoreClick.bind(this);
 
     this.state = {};
+  }
+
+  handleAddToScoreClick(event) {
+    console.log('my name is:', event.target.id);
+    this.props.playerActions.addToScore(event.target.id);
   }
 
   render() {
@@ -58,7 +63,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerA.firstMatchPoints}
                     playerB={tournament.players.playerB.name}
                     playerBPoints={tournament.players.playerB.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -71,7 +76,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerC.firstMatchPoints}
                     playerB={tournament.players.playerD.name}
                     playerBPoints={tournament.players.playerD.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -84,7 +89,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerE.firstMatchPoints}
                     playerB={tournament.players.playerF.name}
                     playerBPoints={tournament.players.playerF.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -97,7 +102,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerG.firstMatchPoints}
                     playerB={tournament.players.playerH.name}
                     playerBPoints={tournament.players.playerH.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -184,7 +189,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerI.firstMatchPoints}
                     playerB={tournament.players.playerJ.name}
                     playerBPoints={tournament.players.playerJ.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -196,7 +201,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerK.firstMatchPoints}
                     playerB={tournament.players.playerL.name}
                     playerBPoints={tournament.players.playerL.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -208,7 +213,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerM.firstMatchPoints}
                     playerB={tournament.players.playerN.name}
                     playerBPoints={tournament.players.playerN.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -220,7 +225,7 @@ class Bracket extends React.Component {
                     playerAPoints={tournament.players.playerO.firstMatchPoints}
                     playerB={tournament.players.playerP.name}
                     playerBPoints={tournament.players.playerP.firstMatchPoints}
-                    // addToScore={e => this.handleDoubleClick(e)}
+                    addToScore={e => this.handleAddToScoreClick(e)}
                     // addToScore={addToScore}
                   />
                 ) : (
@@ -249,6 +254,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(tournamentActions, dispatch),
+    playerActions: bindActionCreators(playerActions, dispatch),
   };
 }
 
