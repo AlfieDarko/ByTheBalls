@@ -1,5 +1,8 @@
-const SET_FIRST_MATCH_SUCCESS = 'SET_FIRST_MATCH_SUCCESS';
-const ADD_TO_FIRST_MATCH_SCORE = 'ADD_TO_FIRST_MATCH_SCORE';
+import {
+  SET_FIRST_MATCH_STATUS,
+  UPDATE_FIRST_MATCH_SCORE,
+} from '../constants/constants';
+
 // THIS FILE NEEDS A REFACTOR TO SEPERATE MATCH AND SCORE CONCERNS!!
 
 // MATCH ACTION CREATORS
@@ -20,41 +23,29 @@ const ADD_TO_FIRST_MATCH_SCORE = 'ADD_TO_FIRST_MATCH_SCORE';
 // };
 
 // SCORING ACTION CREATORS
-export const addToScore = player => {
-  return { type: ADD_TO_FIRST_MATCH_SCORE, player };
+export const updateFirstMatchScore = (id, name, amount, tournament) => {
+  return { type: UPDATE_FIRST_MATCH_SCORE, id, name, amount, tournament };
 };
 
-// export const addToFirstMatchScore = (playerid, tournament) => {
-//   console.log(players, 'players now in the action creator');
-//   // we want to take our playerid and score and use the selector to
-//   // find the player and then we will set the playerScore in the state
-//   const player = getPlayerById(players, playerid);
-
-//   const newState = Object.assign([...players]);
-
-//   return dispatch => {
-//     console.log(newState, 'newsTATE');
-//     // newState[0].firstMatchPoints += 1;
-//     // console.log(Object.assign([...players], player), 'ew onne');
-//     // const newNewTeam = Object.assign([...players], player);
-//     let newplayer = {
-//       firstMatchPoints: 1,
-//       wonFirstMatch: null,
-//       quarterFinalMatchPoints: 0,
-//       wonQuarterFinalMatch: null,
-//       semiFinalMatchPoints: 0,
-//       wonSemiFinalMatch: null,
-//       finalMatchPoints: 0,
-//       wonFinalMatch: null,
-//       _id: '5b8c36c6e709303bd1ea4ee8',
-//       name: 'Ryu',
-//       id: 'playerA',
-//     };
-//     dispatch(addToFirstMatchScoreSuccess(newplayer));
-//   };
-// };
+export const setFirstMatchStatus = (
+  playerID,
+  name,
+  opponentID,
+  opponentName,
+  tournament,
+) => {
+  return {
+    type: SET_FIRST_MATCH_STATUS,
+    playerID,
+    name,
+    opponentID,
+    opponentName,
+    tournament,
+  };
+};
 
 // // selector
+// just state!!!!! when you redo this
 // export const getPlayerById = (players, playerid) => {
 //   console.log(players);
 //   return players.filter(player => player._id == playerid);
