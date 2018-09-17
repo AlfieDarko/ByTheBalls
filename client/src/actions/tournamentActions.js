@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-const CREATE_TOURNAMENT_SUCCESS = 'CREATE_TOURNAMENT_SUCCESS';
-const LOAD_TOURNAMENTS_SUCCESS = 'LOAD_TOURNAMENTS_SUCCESS';
-const LOAD_ONE_TOURNAMENT_SUCCESS = 'LOAD_ONE_TOURNAMENT_SUCCESS';
-const LOAD_PLAYERS_SUCCESS = 'LOAD_PLAYERS_SUCCESS';
-const CREATE_TOURNAMENT_REQUEST = 'CREATE_TOURNAMENT_REQUEST';
+import {
+  CREATE_TOURNAMENT_SUCCESS,
+  LOAD_TOURNAMENTS_SUCCESS,
+  LOAD_ONE_TOURNAMENT_SUCCESS,
+  LOAD_PLAYERS_SUCCESS,
+  CREATE_TOURNAMENT_REQUEST,
+  LOAD_TOURNAMENTS_REQUEST,
+} from '../constants/constants';
 
 export function createTournamentSuccess(tournament) {
   return { type: CREATE_TOURNAMENT_SUCCESS, tournament };
@@ -29,16 +32,6 @@ export function loadOneTournamentSuccess(tournament) {
 export function loadPlayersSuccess(players) {
   return { type: LOAD_PLAYERS_SUCCESS, players };
 }
-
-// export function loadTournament(state, id) {
-//   return function(dispatch, getState) {
-//     console.log('getState', getState);
-//     const tournament = _.find(getState, el => {
-//       return el._id == id;
-//     });
-//     dispatch(loadOneTournamentSuccess(tournament));
-//   };
-// }
 
 export function loadTournaments() {
   return function(dispatch, getState) {
@@ -87,7 +80,6 @@ export function saveTournament(tournament) {
   };
 }
 
-
 // the params id is passed to the brackets component via props
 // state is done before props
-// only way I can do is wait for 
+// only way I can do is wait for
