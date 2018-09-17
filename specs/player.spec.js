@@ -14,9 +14,50 @@ describe('Player Class', () => {
     });
   });
 
-  describe('When instantiated', () => {
-    it('the .round1Winner property should eql null', () => {
-      expect(player.wonRound1).toBe(null);
+  describe('When instantiated ', () => {
+    describe('this.wonFirstMatch', () => {
+      it('Should start with eql null', () => {
+        expect(player.wonFirstMatch).toBe(null);
+      });
+    });
+
+    describe('this.wonSemiFinalMatch', () => {
+      it('should start with eql null', () => {
+        expect(player.wonSemiFinalMatch).toBe(null);
+      });
+    });
+
+    describe('this.wonFinalMatch', () => {
+      it('should start with eql null', () => {
+        expect(player.wonFinalMatch).toBe(null);
+      });
+    });
+
+    describe('.winFirstMatch()', () => {
+      describe('When executed', () => {
+        it('Should set .wonFirstMatch property as true', () => {
+          player.winFirstMatch();
+          expect(player.wonFirstMatch).toBe(true);
+        });
+      });
+    });
+
+    describe('.winSemiFinalMatch()', () => {
+      describe('when executed', () => {
+        it('Should set .wonSemiFinalMatch property as true', () => {
+          player.winSemiFinalMatch();
+          expect(player.wonSemiFinalMatch).toBe(true);
+        });
+      });
+    });
+
+    describe('.winFinalMatch()', () => {
+      describe('when executed', () => {
+        it('Should set .wonFinalMatch property as true', () => {
+          player.winFinalMatch();
+          expect(player.wonFinalMatch).toBe(true);
+        });
+      });
     });
   });
 });

@@ -3,12 +3,12 @@ import { join } from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import { json, urlencoded } from 'body-parser';
-
+import cors from 'cors';
 import index from './routes/index';
 import users from './routes/users';
 
 const app = express();
-
+app.use(cors());
 // view engine setup
 app.set('view engine', 'ejs');
 
