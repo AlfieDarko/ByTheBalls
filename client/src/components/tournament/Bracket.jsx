@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import _ from 'lodash';
-// import PropTypes from 'prop-types';
 import WebFont from 'webfontloader';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -8,11 +6,15 @@ import 'font-awesome/css/font-awesome.min.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tournamentActions from '../../actions/tournamentActions';
+import * as playerActions from '../../actions/playerActions';
 
 // Components
 import Matchup from './Matchup';
 import ChampionshipMatchup from './ChampionshipMatchup';
 import styles from '../../styles/main.less';
+import { selectTournamentById } from '../../reducers/tournamentReducer';
+
+// Constants
 
 WebFont.load({
   google: {
@@ -26,36 +28,59 @@ WebFont.load({
   },
 });
 
+/*
+  quarter finals logic
+  Takes winner from corresponding Match
+
+
+
+
+*/
+
 let roundOneDiv = `${styles.round} ${styles['round-one']} ${styles.current}`;
 // use styles.current to highlight what round we are on
 // on or off via props maybe?
 class Bracket extends React.Component {
   constructor(props, context) {
     super(props, context);
-
-    this.state = {
-      tournament: Object.assign({}, this.props.tournament),
-    };
+    this.handleAddToScoreClick = this.handleAddToScoreClick.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
+    // this.state = {};
   }
 
-  componentWillMount() {
-    this.props.actions.loadOneTournament(this.props.match.params.id);
+  handleToggle(event) {
+    let { tournament, playerActions } = this.props;
+    let playerID = event.target.getAttribute('playerid');
+    let playerName = event.target.getAttribute('player');
+    let opponentID = event.target.getAttribute('opponentid');
+    let opponentName = event.target.getAttribute('opponent');
+
+    playerActions.setFirstMatchStatus(
+      playerID,
+      playerName,
+      opponentID,
+      opponentName,
+      tournament,
+    );
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps, 'sweetone');
-    this.setState({
-      tournament: Object.assign({}, nextProps.tournament),
-      players: nextProps.tournament.players,
-    });
+  handleAddToScoreClick(event) {
+    let { id } = event.target;
+    let { playerActions, tournament } = this.props;
+    if (id) {
+      playerActions.updateFirstMatchScore(
+        event.currentTarget.id,
+        event.target.getAttribute('name'),
+        event.target.getAttribute('amount'),
+        tournament,
+      );
+    }
   }
 
   render() {
     const { tournament } = this.props;
-
     return (
       <Fragment>
-        {console.log(this.props.players, 'plyers')}
         <section id={styles.bracket}>
           <div className={styles.container}>
             <div className={`${styles.split} ${styles['split-one']}`}>
@@ -64,10 +89,68 @@ class Bracket extends React.Component {
                   Sweet 16<br />
                   <span className={styles.date}>March 16</span>
                 </div>
-                <Matchup playerA="" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
+
+                {tournament ? (
+                  <Matchup
+                    // move strings to constants after
+                    matchStage="firstMatch"
+                    playerA={tournament.players.playerA.name}
+                    playerAid={tournament.players.playerA.id}
+                    playerAPoints={tournament.players.playerA.firstMatchPoints}
+                    playerB={tournament.players.playerB.name}
+                    playerBid={tournament.players.playerB.id}
+                    playerBPoints={tournament.players.playerB.firstMatchPoints}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerC.name}
+                    playerAid={tournament.players.playerC.id}
+                    playerAPoints={tournament.players.playerC.firstMatchPoints}
+                    playerB={tournament.players.playerD.name}
+                    playerBid={tournament.players.playerD.id}
+                    playerBPoints={tournament.players.playerD.firstMatchPoints}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerE.name}
+                    playerAid={tournament.players.playerE.id}
+                    playerAPoints={tournament.players.playerE.firstMatchPoints}
+                    playerB={tournament.players.playerF.name}
+                    playerBid={tournament.players.playerF.id}
+                    playerBPoints={tournament.players.playerF.firstMatchPoints}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerG.name}
+                    playerAid={tournament.players.playerG.id}
+                    playerAPoints={tournament.players.playerG.firstMatchPoints}
+                    playerB={tournament.players.playerH.name}
+                    playerBid={tournament.players.playerH.id}
+                    playerBPoints={tournament.players.playerH.firstMatchPoints}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </div>
               {/* <!-- END ROUND ONE --> */}
 
@@ -76,8 +159,8 @@ class Bracket extends React.Component {
                   Quarter Finals<br />
                   <span className={styles.date}>March 18</span>
                 </div>
-                <Matchup playerA="MJ" playerB="Drake" />
-                <Matchup playerA="MJ" playerB="Drake" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
               </div>
               {/* <!-- END ROUND TWO --> */}
               <div className={`${styles.round} ${styles['round-three']}`}>
@@ -85,7 +168,7 @@ class Bracket extends React.Component {
                   Semi Finals<br />
                   <span className={styles.date}>March 22</span>
                 </div>
-                <Matchup playerA="MJ" playerB="Drake" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
               </div>
               {/* <!-- END ROUND THREE -->		 */}
             </div>
@@ -120,7 +203,7 @@ class Bracket extends React.Component {
                   Semi Finals<br />
                   <span className={styles.date}>March 22</span>
                 </div>
-                <Matchup playerA="MJ" playerB="Drake" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
               </div>
               {/* <!-- END ROUND THREE -->	 */}
 
@@ -129,9 +212,9 @@ class Bracket extends React.Component {
                   Quarter Finals<br />
                   <span className={styles.date}>March 18</span>
                 </div>
-                <Matchup playerA="MJ" playerB="Drake" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
 
-                <Matchup playerA="MJ" playerB="Drake" />
+                <Matchup playerA="Undecided" playerB="Undecided" />
               </div>
               {/* <!-- END ROUND TWO --> */}
               <div
@@ -143,10 +226,62 @@ class Bracket extends React.Component {
                   Sweet 16<br />
                   <span className={styles.date}>March 16</span>
                 </div>
-                <Matchup playerI="MJ" playerJ="Drake" />
-                <Matchup playerK="MJ" playerL="Drake" />
-                <Matchup playerM="MJ" playerN="Drake" />
-                <Matchup playerO="MJ" playerP="Drake" />
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerI.name}
+                    playerAid={tournament.players.playerI.id}
+                    playerAPoints={tournament.players.playerI.firstMatchPoints}
+                    playerB={tournament.players.playerJ.name}
+                    playerBPoints={tournament.players.playerJ.firstMatchPoints}
+                    playerBid={tournament.players.playerJ.id}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerK.name}
+                    playerAPoints={tournament.players.playerK.firstMatchPoints}
+                    playerAid={tournament.players.playerK.id}
+                    playerB={tournament.players.playerL.name}
+                    playerBPoints={tournament.players.playerL.firstMatchPoints}
+                    playerBid={tournament.players.playerL.id}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerM.name}
+                    playerAPoints={tournament.players.playerM.firstMatchPoints}
+                    playerAid={tournament.players.playerM.id}
+                    playerB={tournament.players.playerN.name}
+                    playerBPoints={tournament.players.playerN.firstMatchPoints}
+                    playerBid={tournament.players.playerN.id}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {tournament ? (
+                  <Matchup
+                    playerA={tournament.players.playerO.name}
+                    playerAPoints={tournament.players.playerO.firstMatchPoints}
+                    playerAid={tournament.players.playerO.id}
+                    playerB={tournament.players.playerP.name}
+                    playerBPoints={tournament.players.playerP.firstMatchPoints}
+                    playerBid={tournament.players.playerP.id}
+                    handleAddToScoreClick={this.handleAddToScoreClick}
+                    handleToggle={this.handleToggle}
+                  />
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </div>
               {/* <!-- END ROUND ONE -->*/}
             </div>
@@ -158,13 +293,20 @@ class Bracket extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  // console.log(state);
+  let ownPropsId = ownProps.match.params.id;
+  let tournament = selectTournamentById(state, ownPropsId);
+
   return {
-    tournament: state.tournament,
+    tournaments: state.tournaments,
+    state: state,
+    tournament: tournament,
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(tournamentActions, dispatch),
+    playerActions: bindActionCreators(playerActions, dispatch),
   };
 }
 

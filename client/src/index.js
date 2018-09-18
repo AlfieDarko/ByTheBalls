@@ -21,7 +21,7 @@ import AllTournaments from './components/tournament/AllTournaments';
 // init STORE and dispatchers
 const store = configureStore();
 store.dispatch(loadTournaments());
-
+console.log(store.getState());
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

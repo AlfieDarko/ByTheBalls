@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
+
 import * as tournamentActions from '../../actions/tournamentActions';
 import TournamentList from './TournamentList';
 
@@ -16,21 +18,24 @@ class AllTournaments extends React.Component {
   }
 
   redirectToAddTournament() {
-    this.context.router.history.push('/tournament/new');
+    const { router } = this.context;
+    router.history.push('/new/tournament');
   }
 
   render() {
     const { tournaments } = this.props;
+    {
+      console.log(tournaments, 'this.props.tournaments');
+    }
     return (
       <div>
         <h1>Tournaments</h1>
-        {console.log(this.props)}
         <input
           type="submit"
           value=" Add Tournament"
           onClick={this.redirectToAddTournament}
         />
-        <TournamentList tournaments={tournaments} />
+        {tournaments[0] && <TournamentList tournaments={tournaments} />}
       </div>
     );
   }
@@ -40,7 +45,8 @@ AllTournaments.contextTypes = {
   router: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
+  // console.log(state, 'state');
   return {
     tournaments: state.tournaments,
   };
@@ -49,7 +55,6 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(tournamentActions, dispatch),
-
     // bindActionsCreators go through all the actions in
     // the first param and wrap them in call to dispatch
     // also wrapping actionCreators in a dispatch, so they can dispatch
