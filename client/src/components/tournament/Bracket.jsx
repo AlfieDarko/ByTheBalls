@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tournamentActions from '../../actions/tournamentActions';
 import * as playerActions from '../../actions/playerActions';
-import { selectTournamentById } from '../../reducers/tournamentReducer';
+import {
+  selectTournamentById,
+  selectQuarterFinalWinners,
+} from '../../reducers/tournamentReducer';
 
 // styles
 import styles from '../../styles/main.less';
@@ -36,7 +39,8 @@ WebFont.load({
 
 /*
   quarter finals logic
-  Takes winner from corresponding Match
+  Use redux to check the state if there are quarter final winners
+  we will need to create a selector! that checks the players and returns the winners
 
 
 
@@ -52,16 +56,18 @@ class Bracket extends React.Component {
     this.handleAddToScoreClick = this.handleAddToScoreClick.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     // this.state = {};
+    console.log(props);
   }
 
   handleToggle(event) {
-    let { tournament, playerActions } = this.props;
-    let { getAttribute } = event.target;
+    console.log(event.target.getAttribute('playerid'));
 
-    let playerID = getAttribute('playerid');
-    let playerName = getAttribute('player');
-    let opponentID = getAttribute('opponentid');
-    let opponentName = getAttribute('opponent');
+    let { tournament, playerActions } = this.props;
+
+    let playerID = event.target.getAttribute('playerid');
+    let playerName = event.target.getAttribute('player');
+    let opponentID = event.target.getAttribute('opponentid');
+    let opponentName = event.target.getAttribute('opponent');
 
     playerActions.setFirstMatchStatus(
       playerID,
@@ -73,6 +79,8 @@ class Bracket extends React.Component {
   }
 
   handleAddToScoreClick(event) {
+    console.log(this.props);
+
     let { id } = event.target;
     let { playerActions, tournament } = this.props;
 
@@ -102,7 +110,6 @@ class Bracket extends React.Component {
                 {tournament ? (
                   <Matchup
                     // move strings to constants after
-                    matchStage="firstMatch"
                     playerA={tournament.players.playerA.name}
                     playerAid={tournament.players.playerA.id}
                     playerAPoints={tournament.players.playerA.firstMatchPoints}
@@ -195,7 +202,6 @@ class Bracket extends React.Component {
               {/* <!-- END ROUND THREE -->	 */}
               <QuarterFinalContainer>
                 <Matchup playerA="Undecided" playerB="Undecided" />
-
                 <Matchup playerA="Undecided" playerB="Undecided" />
               </QuarterFinalContainer>
               {/* <!-- END ROUND TWO --> */}
@@ -275,14 +281,13 @@ class Bracket extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  // console.log(state);
   let ownPropsId = ownProps.match.params.id;
-  let tournament = selectTournamentById(state, ownPropsId);
 
   return {
     tournaments: state.tournaments,
     state: state,
-    tournament: tournament,
+    tournament: selectTournamentById(state, ownPropsId),
+    quarterFinalsWinners: selectQuarterFinalWinners(state),
   };
 }
 function mapDispatchToProps(dispatch) {
