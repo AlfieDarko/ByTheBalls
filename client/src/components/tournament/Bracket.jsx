@@ -7,14 +7,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tournamentActions from '../../actions/tournamentActions';
 import * as playerActions from '../../actions/playerActions';
+import { selectTournamentById } from '../../reducers/tournamentReducer';
+
+// styles
+import styles from '../../styles/main.less';
 
 // Components
 import Matchup from './Matchup';
 import ChampionshipMatchup from './ChampionshipMatchup';
-import styles from '../../styles/main.less';
-import { selectTournamentById } from '../../reducers/tournamentReducer';
-
-// Constants
+import QuarterFinalContainer from './QuarterFinalContainer';
+import SemiFinalContainer from './SemiFinalContainer';
+import FinalContainer from './FinalContainer';
+import ThirdPlacePlayoffContainer from './ThirdPlacePlayoffContainer';
 
 WebFont.load({
   google: {
@@ -27,6 +31,8 @@ WebFont.load({
     ],
   },
 });
+
+// Constants
 
 /*
   quarter finals logic
@@ -50,10 +56,12 @@ class Bracket extends React.Component {
 
   handleToggle(event) {
     let { tournament, playerActions } = this.props;
-    let playerID = event.target.getAttribute('playerid');
-    let playerName = event.target.getAttribute('player');
-    let opponentID = event.target.getAttribute('opponentid');
-    let opponentName = event.target.getAttribute('opponent');
+    let { getAttribute } = event.target;
+
+    let playerID = getAttribute('playerid');
+    let playerName = getAttribute('player');
+    let opponentID = getAttribute('opponentid');
+    let opponentName = getAttribute('opponent');
 
     playerActions.setFirstMatchStatus(
       playerID,
@@ -67,6 +75,7 @@ class Bracket extends React.Component {
   handleAddToScoreClick(event) {
     let { id } = event.target;
     let { playerActions, tournament } = this.props;
+
     if (id) {
       playerActions.updateFirstMatchScore(
         event.currentTarget.id,
@@ -153,42 +162,24 @@ class Bracket extends React.Component {
                 )}
               </div>
               {/* <!-- END ROUND ONE --> */}
-
-              <div className={`${styles.round} ${styles['round-two']}`}>
-                <div className={styles['round-details']}>
-                  Quarter Finals<br />
-                  <span className={styles.date}>March 18</span>
-                </div>
+              <QuarterFinalContainer>
                 <Matchup playerA="Undecided" playerB="Undecided" />
                 <Matchup playerA="Undecided" playerB="Undecided" />
-              </div>
+              </QuarterFinalContainer>
               {/* <!-- END ROUND TWO --> */}
-              <div className={`${styles.round} ${styles['round-three']}`}>
-                <div className={styles['round-details']}>
-                  Semi Finals<br />
-                  <span className={styles.date}>March 22</span>
-                </div>
+              <SemiFinalContainer>
                 <Matchup playerA="Undecided" playerB="Undecided" />
-              </div>
+              </SemiFinalContainer>
               {/* <!-- END ROUND THREE -->		 */}
             </div>
             <div className={styles.champion}>
-              <div className={styles['semis-l']}>
-                <div className={styles['round-details']}>
-                  3rd Place Playoff <br />
-                  <span className={styles.date}>March 26-28</span>
-                </div>
-                <ChampionshipMatchup playerA="Undecided" playerB="Undecided" />{' '}
-              </div>
-              <div className={styles.final}>
-                <i className="fa fa-trophy" />
-                <div className={styles['round-details']}>
-                  Championship Finals <br />
-                  <span className={styles.date}>March 30 - Apr. 1</span>
-                </div>
-
+              <ThirdPlacePlayoffContainer>
                 <ChampionshipMatchup playerA="Undecided" playerB="Undecided" />
-              </div>
+              </ThirdPlacePlayoffContainer>
+
+              <FinalContainer>
+                <ChampionshipMatchup playerA="Undecided" playerB="Undecided" />
+              </FinalContainer>
               <div className={styles['semis-r']}>
                 <div className={styles['round-details']}>
                   {' '}
@@ -198,24 +189,15 @@ class Bracket extends React.Component {
             </div>
 
             <div className={`${styles.split} ${styles['split-two']}`}>
-              <div className={`${styles.round} ${styles['round-three']}`}>
-                <div className={styles['round-details']}>
-                  Semi Finals<br />
-                  <span className={styles.date}>March 22</span>
-                </div>
+              <SemiFinalContainer>
                 <Matchup playerA="Undecided" playerB="Undecided" />
-              </div>
+              </SemiFinalContainer>
               {/* <!-- END ROUND THREE -->	 */}
-
-              <div className={`${styles.round} ${styles['round-two']}`}>
-                <div className={styles['round-details']}>
-                  Quarter Finals<br />
-                  <span className={styles.date}>March 18</span>
-                </div>
+              <QuarterFinalContainer>
                 <Matchup playerA="Undecided" playerB="Undecided" />
 
                 <Matchup playerA="Undecided" playerB="Undecided" />
-              </div>
+              </QuarterFinalContainer>
               {/* <!-- END ROUND TWO --> */}
               <div
                 className={`${styles.round} ${styles['round-one']} ${
