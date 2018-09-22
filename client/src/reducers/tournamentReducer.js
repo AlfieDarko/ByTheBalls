@@ -61,7 +61,11 @@ export const selectTournamentById = (state, tournamentid) => {
   return _.find(state.tournaments, { _id: tournamentid });
 };
 
-export const getPlayers = tournament => {
-  const result = tournament.players;
-  return result;
+export const selectQuarterFinalWinners = state => {
+  let clonedTournaments = JSON.parse(JSON.stringify(state.tournaments));
+  let clonedTournament = { ...clonedTournaments[0] };
+
+  return _.filter(clonedTournament.players, player => {
+    return player.wonFirstMatch == true;
+  });
 };
