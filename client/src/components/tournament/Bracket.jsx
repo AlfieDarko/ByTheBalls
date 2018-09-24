@@ -41,9 +41,16 @@ WebFont.load({
   quarter finals logic
   Use redux to check the state if there are quarter final winners
   we will need to create a selector! that checks the players and returns the winners
+  
+  if the length of the winners is dividable by 2 without a remainder
+    then pass in the bits into the matchUp component 
 
+    or
 
-
+  if 1 & 2 is true then
+    pass them into the component 
+    if not
+  keep the component as undecided
 
 */
 
@@ -95,7 +102,22 @@ class Bracket extends React.Component {
   }
 
   render() {
-    const { tournament } = this.props;
+    const { tournament, quarterFinalsWinners } = this.props;
+    console.log(quarterFinalsWinners);
+
+    const renderMatch = (playerA, playerB) => (
+      <Matchup
+        playerA={playerA.name}
+        playerAid={playerA.id}
+        playerAPoints={playerA.quarterFinalMatchPoints}
+        playerB={playerB.name}
+        playerBid={playerB.id}
+        playerBPoints={playerB.quarterFinalMatchPoints}
+        handleAddToScoreClick={this.handleAddToScoreClick}
+        handleToggle={this.handleToggle}
+      />
+    );
+
     return (
       <Fragment>
         <section id={styles.bracket}>
@@ -170,8 +192,16 @@ class Bracket extends React.Component {
               </div>
               {/* <!-- END ROUND ONE --> */}
               <QuarterFinalContainer>
-                <Matchup playerA="Undecided" playerB="Undecided" />
-                <Matchup playerA="Undecided" playerB="Undecided" />
+                {quarterFinalsWinners[0] && quarterFinalsWinners[1] ? (
+                  renderMatch(quarterFinalsWinners[0], quarterFinalsWinners[1])
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {quarterFinalsWinners[2] && quarterFinalsWinners[3] ? (
+                  renderMatch(quarterFinalsWinners[2], quarterFinalsWinners[3])
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </QuarterFinalContainer>
               {/* <!-- END ROUND TWO --> */}
               <SemiFinalContainer>
@@ -201,8 +231,16 @@ class Bracket extends React.Component {
               </SemiFinalContainer>
               {/* <!-- END ROUND THREE -->	 */}
               <QuarterFinalContainer>
-                <Matchup playerA="Undecided" playerB="Undecided" />
-                <Matchup playerA="Undecided" playerB="Undecided" />
+                {quarterFinalsWinners[4] && quarterFinalsWinners[5] ? (
+                  renderMatch(quarterFinalsWinners[4], quarterFinalsWinners[5])
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
+                {quarterFinalsWinners[6] && quarterFinalsWinners[7] ? (
+                  renderMatch(quarterFinalsWinners[6], quarterFinalsWinners[7])
+                ) : (
+                  <Matchup playerA="" playerB="" />
+                )}
               </QuarterFinalContainer>
               {/* <!-- END ROUND TWO --> */}
               <div
