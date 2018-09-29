@@ -60,11 +60,26 @@ I WANT TO BE ABLE TO SEND AN EMAIL INVITATION OUT TO THEM
 - Place Software Architecture Diagram Here
 - Place UML Diagram Here
 
+## Approach
+ I wanted to use this as a practice project to implement something with fairly complicated logic so that I could implement redux in a way that would make sense. Using redux for a much more simpler project would not have allowed me to see the full benefit state management. <br>
+ This project also allowed me to mess around with CSS and creating more component based layouts. <br><br>
+
+ Some of the things I would change if approaching this type of project again is that I would opt to create the layout from scratch. This is a layout I used from codepen but creating my own from scratch would have allowed me to brush up on my HTML and CSS abilities especially flexbox and CSS grid which is something I am actively trying to improve at.<br><br>
+
 ## Getting Started
+
+## To-do
+- Clean up the codebase
+- Move strings literals to constants
+- Remove htmk markup and replace with components
+- Add testing
+
 
 ### Prerequisites
 
 ### Installing
+- NPM or yarn install from the root directory
+- change into the client directory and install the client files
 
 ## Testing
 
