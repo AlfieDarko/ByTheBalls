@@ -35,25 +35,6 @@ WebFont.load({
   },
 });
 
-// Constants
-
-/*
-  quarter finals logic
-  Use redux to check the state if there are quarter final winners
-  we will need to create a selector! that checks the players and returns the winners
-  
-  if the length of the winners is dividable by 2 without a remainder
-    then pass in the bits into the matchUp component 
-
-    or
-
-  if 1 & 2 is true then
-    pass them into the component 
-    if not
-  keep the component as undecided
-
-*/
-
 let roundOneDiv = `${styles.round} ${styles['round-one']} ${styles.current}`;
 // use styles.current to highlight what round we are on
 // on or off via props maybe?
